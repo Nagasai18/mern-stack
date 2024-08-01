@@ -1,0 +1,16 @@
+{
+  "name": "sainodejsproject",
+  "version": "1.0.0",
+  "description": "creating api",
+  "main": "server1.js",
+  "scripts": {
+    "test": "basic npm commands"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "console"
+  ],
+  "author": "sai",
+  "license": "ISC"
+}
