@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>home work</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+</style>
+</head>
+
+<body onload="document.gmaillogin.email1.focus();">
+	<form name="gmailogin" onsubmit="return io()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email1"><br>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password1"><br>
+  </div>
+  <div class="form-group">
+    <label for="phnum1">Enter phone number</label>
+    <input type="text" class="form-control" placeholder="phone_number" name="phnum"><br>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script>
+    function io() {
+    var gmail = document.gmailogin.email1;
+    var pwd = document.gmailogin.password1;
+    var pno = document.gmailogin.phnum;
+
+    if (Validateemail1(gmail)) {
+        if (password1_validation(pwd, 10, 12)) {
+            if (phnum_validation(pno, 10, 10)) {
+                return true;
+            }
+        }
+    }
+
+    return false; 
+}
+function Validateemail1(gmail) {
+    var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (gmail.value.match(emailformat)) {
+        return true; 
+    } else {
+        alert("Please enter a valid email id");
+        gmail.focus();
+        return false;
+    }
+}
+
+function password1_validation(pwd, mx, my) {
+    var a = pwd.value.length;
+    if (a === 0 || a > my || a < mx) {
+        alert("Please enter a valid password (between " + mx + " and " + my + " characters)");
+        pwd.focus();
+        return false; 
+    }
+    return true;
+}
+
+function phnum_validation(pno, mx, my) {
+    var numbers = /^[0-9]+$/;
+    var phoneno = pno.value;
+    if (phoneno.length !== mx || phoneno[0] !== '9') {
+        alert("Phone number should contain exactly " + mx + " digits and start with 9.");
+        pno.focus();
+        return false; 
+    }
+    alert("details are successfully updated");
+    // window.location.onload(); 
+    return true; 
+}
+
+</script>
+
+
+</body>
+</html>
